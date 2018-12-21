@@ -1,7 +1,9 @@
 from  flask  import   Flask
+from  flask  import   jsonify
 import   suds
 from  flask  import   render_template
 from  suds  import   client
+import   json
 
 #pip   install suds-jurko
 
@@ -21,8 +23,13 @@ def   defaultView():
       result=client.service.queryRoleData()
 
       print(result)
+      print(type(result))
 
-      return  render_template("index.html")
+      #'suds.sax.text.Text'转换成json数据格式
+      jsondatas=json.loads(result)
+
+      print("jsondatas-->",jsondatas)
+      return  render_template("index.html",content=jsondatas)
 
 
 

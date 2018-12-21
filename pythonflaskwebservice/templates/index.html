@@ -6,5 +6,29 @@
 </head>
 <body>
 这是首页
+<hr/>
+<ul>
+{%  for data  in content %}
+
+<li>{{data.rname}}</li>
+
+{% endfor   %}
+</ul>
+<hr>
+<table  border="1">
+  {%  for data  in content %}
+
+     <tr>
+
+
+           <td>{{data.id}}</td>
+           <td>{{data.rname}}</td>
+
+
+     </tr>
+
+    {% endfor %}
+
+</table>
 </body>
 </html>
